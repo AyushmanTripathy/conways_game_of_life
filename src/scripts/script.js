@@ -1,20 +1,21 @@
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 let blockSize = 10;
 const frameRate = 100;
 let main = [];
-let canvas, ctx, intervalId;
+let intervalId;
+
+let running = false;
 
 //canvas-container
 
-function startGame(size) {
+function startGame() {
+  if (running) return;
+
+  running = true;
+  const size = document.getElementsByClassName("slider")[0].value;
   //create the canvas
-  const ele = document.createElement("canvas");
-  ele.height = 600;
-  ele.width = 600;
 
-  document.querySelector("#canvas-container").appendChild(ele);
-
-  canvas = document.querySelector("canvas");
-  ctx = canvas.getContext("2d");
   init(size, makeMap(size, false));
 }
 
@@ -105,6 +106,7 @@ function draw(map) {
 }
 
 function stop() {
+  running = false;
   clearInterval(intervalId);
 }
 
@@ -121,4 +123,16 @@ function makeMap(side, def) {
   }
 
   return arr;
+}
+
+function showOptions() {
+  document.getElementById("options-wrapper").style.display = "flex";
+  document.getElementById("showLessButton").style.display = "block";
+  document.getElementById("showMoreButton").style.display = "none";
+}
+
+function hideOptions() {
+  document.getElementById("options-wrapper").style.display = "none";
+  document.getElementById("showLessButton").style.display = "none";
+  document.getElementById("showMoreButton").style.display = "block";
 }

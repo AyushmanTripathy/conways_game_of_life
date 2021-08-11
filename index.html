@@ -8,7 +8,25 @@
     <title>Document</title>
   </head>
   <body>
-    <section id="canvas-container"></section>
+    <!--TOP BAR-->
+    <section id="topbar">
+      <label for="count"> Count </label>
+      <input
+        type="range"
+        max="200"
+        min="30"
+        class="slider"
+        name="count"
+        value="100"
+      />
+      <button onclick="stop()">Stop</button>
+      <button onclick="startGame()">Start</button>
+    </section>
+
+    <!--CANVAS-->
+    <section id="canvas-container">
+      <canvas height="720px" width="720px"></canvas>
+    </section>
     <script src="./src/scripts/script.js"></script>
   </body>
 </html>
