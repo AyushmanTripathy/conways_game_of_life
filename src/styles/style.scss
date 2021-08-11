@@ -19,3 +19,14 @@ body {
   width: 100vw;
   color: $sec;
 }
+
+#canvas-container {
+  @include centered;
+}
+
+canvas {
+  height: 600px;
+  width: 600px;
+
+  border: $sec 1px solid;
+}
