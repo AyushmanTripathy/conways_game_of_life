@@ -1,15 +1,27 @@
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
 let blockSize = 10;
-let intervalId;
 const frameRate = 100;
 let main = [];
+let canvas, ctx, intervalId;
 
-init(30);
-function init(size) {
+//canvas-container
+
+function startGame(size) {
+  //create the canvas
+  const ele = document.createElement("canvas");
+  ele.height = 600;
+  ele.width = 600;
+
+  document.querySelector("#canvas-container").appendChild(ele);
+
+  canvas = document.querySelector("canvas");
+  ctx = canvas.getContext("2d");
+  init(size, makeMap(size, false));
+}
+
+function init(size, map) {
   blockSize = canvas.width / size;
-  main = makeMap(size, false);
 
+  main = map;
   intervalId = setInterval(() => {
     draw(main);
     main = gameLoop([...main]);
