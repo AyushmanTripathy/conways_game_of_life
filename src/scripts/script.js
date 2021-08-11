@@ -117,12 +117,19 @@ function makeMap(side, def) {
   for (let i = 0; i < side; i++) {
     rows = new Array(side);
     for (let j = 0; j < side; j++) {
-      rows[j] = Math.round(Math.random());
+      rows[j] = random();
     }
     arr[i] = rows;
   }
 
   return arr;
+}
+
+function random(){
+  if(Math.floor(Math.random()*3 == 1){
+    return 1;
+  }
+  return 0;
 }
 
 function showOptions() {
