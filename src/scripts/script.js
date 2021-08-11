@@ -10,7 +10,11 @@ let running = false;
 //canvas-container
 
 function startGame() {
-  if (running) return;
+  if (running) {
+    stop();
+    startGame();
+    return;
+  }
 
   running = true;
   const size = document.getElementsByClassName("slider")[0].value;
@@ -125,11 +129,12 @@ function makeMap(side, def) {
   return arr;
 }
 
-function random(){
-  if(Math.floor(Math.random()*3 == 1){
+function random() {
+  if (Math.floor(Math.random() * 15) == 1) {
     return 1;
+  } else {
+    return 0;
   }
-  return 0;
 }
 
 function showOptions() {

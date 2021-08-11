@@ -66,10 +66,6 @@ canvas {
 
 #topbar {
   z-index: 2;
-  position: fixed;
-
-  top: 0;
-  left: 0;
 
   margin-top: 5px;
 
@@ -79,8 +75,6 @@ canvas {
   @include centered;
   justify-content: center;
   flex-direction: row;
-
-  transition: opacity 5s;
 }
 
 @mixin inputs {
