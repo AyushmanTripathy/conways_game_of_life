@@ -1,0 +1,8 @@
+{
+  "include": ["ts"],
+  "compilerOptions": {
+    "target": "esnext",
+    "outDir": "js",
+    "removeComments": true
+  }
+}
